@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { MoviesContainer } from "./components/MoviesContainer.style";
 
 interface movies {
   id: number;
@@ -34,15 +35,18 @@ function App() {
   }, [])
 
   return (
-    <>
-      <h1>Filmes</h1>
+    <main>
+      <h1>Top Rated Movies</h1>
+      
+      <MoviesContainer>
       {topRatedMovies.map(movie => (
-        <div key={movie.id}>
-          <p>{movie.title}</p>
+        <div>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />
+          <p>{movie.title}</p>
         </div>
-      ))}
-    </>
+        ))}
+      </MoviesContainer>
+    </main>
   )
 }
 
