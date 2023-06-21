@@ -1,8 +1,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #1b1c30;
 }
 
 body {
-  background-color: #1b1c30;
+  background-color: var(--primary-color);
   color: #fff;
 }
