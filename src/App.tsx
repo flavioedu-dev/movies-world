@@ -1,6 +1,3 @@
-// Pages
-import Home from "./pages/Home/Home";
-
 // Component
 import Header from "./components/Header";
 
@@ -11,7 +8,6 @@ function App() {
     <>
       <Header />
       <Outlet />
-      <Home />
     </>
   );
 }

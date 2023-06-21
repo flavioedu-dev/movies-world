@@ -8,7 +8,7 @@ interface menuOption{
 
 const Header = () => {
 
-  const menuOptions = [
+  const menuOptions: menuOption[] = [
     {
       name: "Home"
     },
