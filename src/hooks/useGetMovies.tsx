@@ -5,9 +5,10 @@ interface movies {
   title: string;
   release_date: string;
   poster_path: string;
+  backdrop_path: string;
 }
 
-export const useGetMovies = ( path: string ) => {
+export const useGetMovies = ( path: string ): movies[] | null => {
     const [moviesList, setMoviesList] = useState<movies[]>([]);
   
     const options = {
@@ -18,20 +19,26 @@ export const useGetMovies = ( path: string ) => {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMmFiYWZlMzAxZWUxN2RiNDA5ZmM3YzJhMjAxNzZiNyIsInN1YiI6IjY0OTFkN2QzYzNjODkxMDBlYjM0NjkxOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tr8SiKSYwPdED7QWFJKw0N3PoWUbE2cn11eOxJXK8UU",
       },
     };
-  
-    const topRatedMoviesList = () => {
-      fetch(`${path}`, options)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setMoviesList(data.results);
-        })
-        .catch((err) => console.log(err));
-    };
-  
-    useEffect(() => {
-      topRatedMoviesList();
-    }, []);
 
-    return moviesList
+    try {
+      const topRatedMoviesList = () => {
+        fetch(`${path}`, options)
+          .then((res) => res.json())
+          .then((data) => {
+            setMoviesList(data.results);
+          })
+          .catch((err) => console.log(err));
+      };
+    
+      useEffect(() => {
+        topRatedMoviesList();
+      }, []);
+  
+      return moviesList
+    } catch (error) {
+      console.log(error)
+      return null
+    }
+  
+    
 }

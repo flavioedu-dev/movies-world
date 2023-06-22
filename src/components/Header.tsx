@@ -15,12 +15,16 @@ const Header = () => {
 
   const menuOptions: menuOption[] = [
     {
-      name: "Home",
+      name: "Populares",
       handleClick: () => navigate("/")
     },
     {
-      name: "Top Rated",
+      name: "Mais votados",
       handleClick: () => navigate("/top-rated")
+    },
+    {
+      name: "Lançamentos",
+      handleClick: () => navigate("/upcoming")
     }
   ]
   return (
