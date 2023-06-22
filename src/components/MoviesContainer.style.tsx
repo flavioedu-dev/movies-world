@@ -3,11 +3,17 @@ import { styled } from "styled-components"
 export const MoviesContainer = styled.section`
   display: flex;
   justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  /* flex-wrap: wrap; */
   text-align: center;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+  }
 
   img {
     max-width: 200px;
