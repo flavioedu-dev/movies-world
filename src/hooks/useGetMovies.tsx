@@ -6,6 +6,7 @@ interface movies {
   release_date: string;
   poster_path: string;
   backdrop_path: string;
+  overview: string;
 }
 
 export const useGetMovies = ( path: string ): movies[] | null => {
