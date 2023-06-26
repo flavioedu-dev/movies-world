@@ -1,12 +1,15 @@
 import App from "../App.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home.tsx";
 
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route element={<App />} >
+          <Route path="/Home" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

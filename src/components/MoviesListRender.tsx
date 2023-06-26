@@ -7,7 +7,7 @@ import { useGetMovies } from "../hooks/useGetMovies";
 
 interface MoviesListRenderProps {
   url: string;
-  onclick:(path: string) => void;
+  onclick:(path: string, title: string, overview: string) => void;
 }
 
 export const MoviesListRender = ( { url, onclick }: MoviesListRenderProps) => {
@@ -17,7 +17,7 @@ export const MoviesListRender = ( { url, onclick }: MoviesListRenderProps) => {
     <main >
       <MoviesContainer>
         {movies && movies.map((movie) => (
-          <div key={movie.id} onClick={() => onclick(`${movie.backdrop_path}`)}>
+          <div key={movie.id} onClick={() => onclick(`${movie.backdrop_path}`, `${movie.title}`, `${movie.overview}`)}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={`${movie.id}`}
