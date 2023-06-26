@@ -4,10 +4,10 @@ import styles from "./App.module.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Custom hooks
-import { useGetMovies } from "./hooks/useGetMovies";
+import { useGetMovies, movies } from "./hooks/useGetMovies";
 
 // Hooks
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // Component
 import Header from "./components/Header/Header";
@@ -16,15 +16,19 @@ import { MoviesListRender } from "./components/MoviesListRender";
 
 function App() {
 
-  const [banner, setBanner] = useState<string>("");
-
-  console.log("banner: ", banner);
-
-  const movies = useGetMovies(
+  const movies: movies[] = useGetMovies(
     "https://api.themoviedb.org/3/movie/now_playing?language=pt-BR"
   );
-
+  
   console.log(movies);
+  console.log(movies[0]);
+  const [banner, setBanner] = useState<string>();
+  console.log("banner: ", banner);
+
+  useEffect(() => {
+    setBanner(`${movies[0]?.backdrop_path}`);
+  }, [movies])
+
   return (
     <section className={styles.App}>
       <Header></Header>

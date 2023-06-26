@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-interface movies {
+export interface movies {
   id: number;
   title: string;
   release_date: string;
@@ -9,7 +9,7 @@ interface movies {
   overview: string;
 }
 
-export const useGetMovies = ( path: string ): movies[] | null => {
+export const useGetMovies = ( path: string ): movies[] => {
     const [moviesList, setMoviesList] = useState<movies[]>([]);
   
     const options = {
@@ -38,7 +38,7 @@ export const useGetMovies = ( path: string ): movies[] | null => {
       return moviesList
     } catch (error) {
       console.log(error)
-      return null
+      return []
     }
   
     
