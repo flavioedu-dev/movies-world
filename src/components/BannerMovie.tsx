@@ -10,19 +10,19 @@ h1 {
 
 .movies_container {
   width: 100%;
-  max-height: 80vh;
+  max-height: 100vh;
+  cursor: pointer;
 }
 
 .movie_item {
   width: 100%;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.699) 0px 5px 15px;
-  cursor: pointer;
-  transition: .3s;
+  transition: .5s;
 }
-  
+
 .movie_descript {
-  display: none;
+  opacity: 0;
   position: absolute;
   top: 200px;
   left: 100px;
@@ -36,13 +36,19 @@ h1 {
   text-align: justify;
 }
 
+.movies_list {
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+}
 &:hover {
   .movie_descript {
-    display: block;
+    opacity: 1;
   }
 
   img {
     filter: opacity(.6);
   }
 }
+
 `
