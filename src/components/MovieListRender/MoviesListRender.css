@@ -1,0 +1,20 @@
+.list_render {
+  max-width: 95%;
+}
+
+.movie img{
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.699) 0px 5px 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.movie img:hover {
+  transform: scale(1.05);
+}
+
+.movie p {
+  max-width: 20ch;
+    font-weight: 500;
+}
