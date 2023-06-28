@@ -1,5 +1,8 @@
 import "./MoviesListRender.css"
 
+// Hooks
+import { useEffect, useState } from "react";
+
 // Custom hooks
 import { useGetMovies } from "../../hooks/useGetMovies";
 
@@ -12,7 +15,13 @@ interface MoviesListRenderProps {
 }
 
 export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
+  const [selectedMovie, setSelectedMovie] = useState<number>()
+
   const movies = useGetMovies(url);
+
+  useEffect(() => {
+    setSelectedMovie(movies[0]?.id)
+  }, [movies])
 
   return (
     <Swiper
@@ -24,14 +33,16 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
         movies.map((movie) => (
             <SwiperSlide
               key={movie.id}
-              onClick={() =>
+              onClick={() =>{
                 onclick(
                   `${movie.backdrop_path}`,
                   `${movie.title}`,
                   `${movie.overview}`
                 )
+                setSelectedMovie(movie?.id)
               }
-              className="movie"
+              }
+              className={selectedMovie === movie.id ? "movie selected" : "movie"}
             >
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

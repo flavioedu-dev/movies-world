@@ -26,7 +26,8 @@ h1 {
   top: 200px;
   left: 100px;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 2px 1px 2px #000;
+  font-style: italic;
 }
 
 .movie_descript p {
@@ -39,10 +40,16 @@ h1 {
   width: 100%;
   position: absolute;
   bottom: 0;
+  opacity: .3;
+  transition: 1s;
 }
 
 &:hover {
   .movie_descript {
+    opacity: 1;
+  }
+
+  .movies_list {
     opacity: 1;
   }
 
