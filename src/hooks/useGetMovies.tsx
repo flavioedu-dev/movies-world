@@ -33,7 +33,7 @@ export const useGetMovies = ( path: string ): movies[] => {
     
       useEffect(() => {
         topRatedMoviesList();
-      }, []);
+      }, [path]);
   
       return moviesList
     } catch (error) {

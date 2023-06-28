@@ -16,12 +16,10 @@ interface BannerMovie {
 }
 
 const Home = () => {
-  const movies: movies[] = useGetMovies(
-    "https://api.themoviedb.org/3/movie/now_playing?language=pt-BR"
-  );
-  console.log(movies);
-
+  const [urlRenderMovies, setUrlRenderMovies] = useState<string>("https://api.themoviedb.org/3/movie/now_playing?language=pt-BR")
   const [dataBanner, setDataBanner] = useState<BannerMovie>();
+
+  const movies: movies[] = useGetMovies(urlRenderMovies);
 
   useEffect(() => {
     setDataBanner({
@@ -29,11 +27,12 @@ const Home = () => {
       title: `${movies[0]?.title}`,
       overview: `${movies[0]?.overview}`,
     });
+
   }, [movies]);
 
   return (
     <section>
-      <Header />
+      <Header onclick={(option: string) => setUrlRenderMovies(option)}/>
       <BannerMovie>
         <img
           className="movie_item"
@@ -46,7 +45,7 @@ const Home = () => {
         </div>
         <div className="movies_list">
           <MoviesListRender
-            url="https://api.themoviedb.org/3/movie/now_playing?language=pt-BR"
+            url={`${urlRenderMovies}`}
             onclick={(path: string, title: string, overview: string) =>
               setDataBanner({
                 url_banner: path,

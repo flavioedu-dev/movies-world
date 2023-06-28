@@ -1,31 +1,35 @@
 import styles from './Header.module.css';
 
-// Hooks
-import { useNavigate } from "react-router-dom";
-
 // Components
 import { Navbar } from "../Navbar.style";
 
 interface menuOption {
   name: string;
-  handleClick?: () => void;
+  path: string;
 }
 
-const Header = () => {
-  const navigate = useNavigate();
+interface HeaderProps {
+  onclick: (option: string) => void;
+}
+
+const Header = ( { onclick }: HeaderProps) => {
 
   const menuOptions: menuOption[] = [
     {
+      name: "Assistidos agora",
+      path: "https://api.themoviedb.org/3/movie/now_playing?language=pt-BR",
+    },
+    {
       name: "Populares",
-      handleClick: () => navigate("/"),
+      path: "https://api.themoviedb.org/3/movie/popular?language=pt-BR",
     },
     {
       name: "Mais votados",
-      handleClick: () => navigate("/top-rated"),
+      path: "https://api.themoviedb.org/3/movie/top_rated?language=pt-BR",
     },
     {
       name: "Lançamentos",
-      handleClick: () => navigate("/upcoming"),
+      path: "https://api.themoviedb.org/3/movie/upcoming?language=pt-BR",
     },
   ];
   return (
@@ -33,7 +37,7 @@ const Header = () => {
       <Navbar>
       <div>
         {menuOptions.map((menu, key) => (
-          <span key={key} onClick={menu.handleClick}>
+          <span key={key} onClick={() => onclick(`${menu.path}`)}>
             {menu.name}
           </span>
         ))}
