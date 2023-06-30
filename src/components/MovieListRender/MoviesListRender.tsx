@@ -16,6 +16,7 @@ interface MoviesListRenderProps {
 
 export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
   const [selectedMovie, setSelectedMovie] = useState<number>()
+  const [numberPerView, setNumberPerView] = useState<number>(8)
 
   const movies = useGetMovies(url);
 
@@ -23,9 +24,27 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
     setSelectedMovie(movies[0]?.id)
   }, [movies])
 
+  useEffect(() => {
+    function handleResize(){
+      if(window.innerWidth < 1400) {
+        setNumberPerView(6)
+      }else {
+        setNumberPerView(8)
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
   return (
     <Swiper
-    slidesPerView={8}
+    slidesPerView={numberPerView}
     pagination={{ clickable: true }} 
     className="list_render"
     >
