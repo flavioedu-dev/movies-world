@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const Navbar = styled.nav`
+export const Navbar = styled.nav<{ inputControl?: number; }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,10 +33,10 @@ export const Navbar = styled.nav`
 
     color: #fff;
     background-color: transparent;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
     position: absolute;
-    right: 4rem;
+    right: 3.4%;
     box-shadow: inset .5px 1px 1px 1px #000;
     outline: none;
   }
@@ -54,10 +54,17 @@ export const Navbar = styled.nav`
   img {
     max-width: 50px;
     position: absolute;
-    top: .5rem;
+    top: .3rem;
     right: 3%;
     border-radius: 50%;
     padding: 10px;
-    box-shadow: .5px .5px 1.5px #000;
+    box-shadow: ${(props) => (
+      props.inputControl === 0 ? ".5px .5px 1.5px #000" : "none"
+    )}
+}
+
+.showSearchInput {
+  transition: .3s ease-in-out;
+  opacity: 1;
 }
 `

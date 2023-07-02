@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 
 import searchIcon from "../../assets/icons/search-icon.svg"
+import xIcon from "../../assets/icons/x-icon.png"
 
 import { useState } from 'react';
 
@@ -19,6 +20,7 @@ interface HeaderProps {
 
 const Header = ( { onclick }: HeaderProps) => {
   const [optionSelected, setOptionSelected] = useState<number>(1)
+  const [controlSearchInput, setControlSearchInput] = useState<number>(0)
 
   const menuOptions: menuOption[] = [
     {
@@ -42,9 +44,14 @@ const Header = ( { onclick }: HeaderProps) => {
       path: "https://api.themoviedb.org/3/movie/upcoming?language=pt-BR",
     },
   ];
+
+  const showSearchInput = () => {
+    controlSearchInput === 0 ? setControlSearchInput(1) : setControlSearchInput(0)
+  }
+
   return (
     <header className={styles.Header}>
-      <Navbar>
+      <Navbar inputControl={controlSearchInput}>
       <div>
         {menuOptions.map((menu) => (
           <span key={menu.id} 
@@ -60,8 +67,8 @@ const Header = ( { onclick }: HeaderProps) => {
           </span>
         ))}
       </div>
-      <input type="text" id="searchMovie" name="search" placeholder="Buscar filme" />
-      <img src={searchIcon} alt="search-icon" />
+      <input type="text" id="searchMovieInput" name="search" placeholder="Buscar filme" className={controlSearchInput ? "showSearchInput" : ""}/>
+      <img src={!controlSearchInput ? searchIcon : xIcon} alt="search-icon" id="searchMovie" onClick={showSearchInput}/>
       </Navbar>
     </header>
   );
