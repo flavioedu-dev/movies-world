@@ -1,5 +1,7 @@
 import styles from './Header.module.css';
 
+import searchIcon from "../../assets/icons/search-icon.svg"
+
 // Components
 import { Navbar } from "../Navbar.style";
 
@@ -42,6 +44,8 @@ const Header = ( { onclick }: HeaderProps) => {
           </span>
         ))}
       </div>
+      <input type="text" id="searchMovie" name="search" placeholder="Buscar filme" />
+      <img src={searchIcon} alt="search-icon" />
       </Navbar>
     </header>
   );

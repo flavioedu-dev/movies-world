@@ -21,4 +21,40 @@ export const Navbar = styled.nav`
     color: var(--primary-color);
     text-shadow: 1px 1px 1px #fff;
   }
+
+  input {
+    opacity: 0;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+
+    color: #fff;
+    background-color: transparent;
+    font-size: 1rem;
+
+    position: absolute;
+    right: 4rem;
+    box-shadow: inset .5px 1px 1px 1px #000;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: #fff;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  input:focus {
+    background-color: rgb(0, 0, 0, .3);
+  }
+
+  img {
+    max-width: 50px;
+    position: absolute;
+    top: .5rem;
+    right: 3%;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: .5px .5px 1.5px #000;
+}
 `
