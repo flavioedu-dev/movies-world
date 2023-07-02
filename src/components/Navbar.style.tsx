@@ -18,8 +18,11 @@ export const Navbar = styled.nav`
   }
 
   span:hover {
-    color: var(--primary-color);
-    text-shadow: 1px 1px 1px #fff;
+    border-bottom: 1px solid rgb(0, 0, 0, .5);
+  }
+
+  .optionSelected, .optionSelected:hover {
+   border-bottom: 1px solid #fff;
   }
 
   input {
