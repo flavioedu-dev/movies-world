@@ -67,7 +67,7 @@ const Header = ( { onclick }: HeaderProps) => {
           </span>
         ))}
       </div>
-      <input type="text" id="searchMovieInput" name="search" placeholder="Buscar filme" className={controlSearchInput ? "showSearchInput" : ""}/>
+      <input type="text" id="searchMovieInput" name="search" placeholder="Buscar filme" className={"showSearchInput"}/>
       <img src={!controlSearchInput ? searchIcon : xIcon} alt="search-icon" id="searchMovie" onClick={showSearchInput}/>
       </Navbar>
     </header>

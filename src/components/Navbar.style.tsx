@@ -26,6 +26,7 @@ export const Navbar = styled.nav<{ inputControl?: number; }>`
   }
 
   input {
+    transition: .3s ease-out;
     opacity: 0;
     border: none;
     border-radius: 5px;
@@ -45,13 +46,21 @@ export const Navbar = styled.nav<{ inputControl?: number; }>`
     color: #fff;
     font-size: 1rem;
     font-style: italic;
+    text-shadow: .5px .5px 1px #000;
   }
 
   input:focus {
     background-color: rgb(0, 0, 0, .3);
   }
 
+  input:focus,
+  input:hover {
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
   img {
+    transition: .3s linear;
     max-width: 50px;
     position: absolute;
     top: .3rem;
@@ -61,10 +70,11 @@ export const Navbar = styled.nav<{ inputControl?: number; }>`
     box-shadow: ${(props) => (
       props.inputControl === 0 ? ".5px .5px 1.5px #000" : "none"
     )}
-}
+  }
 
-.showSearchInput {
-  transition: .3s ease-in-out;
-  opacity: 1;
-}
+  .showSearchInput {
+    opacity: ${(props) => (
+      props.inputControl === 1 ? "1" : "0"
+    )}
+  }
 `
