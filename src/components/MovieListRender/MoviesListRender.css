@@ -28,4 +28,12 @@
 .movie.selected{
   opacity: 1;
   filter: blur(0);
+  transform: translateY(-30px);
+  transition: .4s ease-in-out;
+}
+
+
+.swiper, swiper-container {
+  overflow: inherit !important;
+  overflow-x: clip !important;
 }
