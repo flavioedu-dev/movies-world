@@ -51,7 +51,7 @@ const Header = ( { onclick }: HeaderProps) => {
 
   return (
     <header className={styles.Header}>
-      <Navbar inputControl={controlSearchInput}>
+      <Navbar inputcontrol={controlSearchInput}>
       <div>
         {menuOptions.map((menu) => (
           <span key={menu.id} 

@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const Navbar = styled.nav<{ inputControl?: number; }>`
+export const Navbar = styled.nav<{ inputcontrol?: number; }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,13 +68,13 @@ export const Navbar = styled.nav<{ inputControl?: number; }>`
     border-radius: 50%;
     padding: 10px;
     box-shadow: ${(props) => (
-      props.inputControl === 0 ? ".5px .5px 1.5px #000" : "none"
+      props.inputcontrol === 0 ? ".5px .5px 1.5px #000" : "none"
     )}
   }
 
   .showSearchInput {
     opacity: ${(props) => (
-      props.inputControl === 1 ? "1" : "0"
+      props.inputcontrol === 1 ? "1" : "0"
     )}
   }
 `
