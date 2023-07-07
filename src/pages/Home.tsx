@@ -3,6 +3,7 @@ import { useGetMovies, movies } from "../hooks/useGetMovies";
 
 // Hooks
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Component
 import Header from "../components/Header/Header";
@@ -10,6 +11,7 @@ import { BannerMovie } from "../components/BannerMovie.style";
 import { MoviesListRender } from "../components/MovieListRender/MoviesListRender";
 
 interface BannerMovie {
+  movieId: number;
   url_banner: string;
   title: string;
   overview: string;
@@ -23,11 +25,17 @@ const Home = () => {
 
   useEffect(() => {
     setDataBanner({
+      movieId: movies[0]?.id,
       url_banner: `${movies[0]?.backdrop_path}`,
       title: `${movies[0]?.title}`,
       overview: `${movies[0]?.overview}`,
     });
 
+    const movieList = document.querySelector(".swiper-wrapper") as HTMLElement;
+    if(movieList) {
+      movieList.style.transform = "translate3d(0px, 0px, 0px)"
+      movieList.style.transitionDuration = "0ms"
+    }
   }, [movies]);
 
   return (
@@ -40,14 +48,18 @@ const Home = () => {
           alt="banner"
         />
         <div className="movie_descript">
-          <h1>{dataBanner?.title}</h1>
+          <div>
+            <h1>{dataBanner?.title}</h1>
+            <Link to={`/movie/:${dataBanner?.movieId}`} className="btnRedirectMovie">Ver filme</Link>
+          </div>
           <p>{dataBanner?.overview}</p>
         </div>
         <div className="movies_list">
           <MoviesListRender
             url={`${urlRenderMovies}`}
-            onclick={(path: string, title: string, overview: string) =>
+            onclick={(id: number, path: string, title: string, overview: string) =>
               setDataBanner({
+                movieId: id,
                 url_banner: path,
                 title,
                 overview,
