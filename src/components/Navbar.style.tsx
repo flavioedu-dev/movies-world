@@ -10,8 +10,6 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
   font-size: 1.3rem;
   font-style: italic;
   text-shadow: 1px 1px 1px #000;
-
-  cursor: pointer;
   
   span {
     padding: 1rem;
@@ -19,6 +17,7 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
 
   span:hover {
     border-bottom: 1px solid rgb(0, 0, 0, 1);
+    cursor: pointer;
   }
 
   .optionSelected, .optionSelected:hover {
@@ -68,13 +67,18 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
     padding: 10px;
     box-shadow: ${(props) => (
       props.inputcontrol === 0 ? ".5px .5px 1.5px #000" : "none"
-    )}
-    
+    )};
+    cursor: pointer;
   }
 
   .showSearchInput {
     opacity: ${(props) => (
       props.inputcontrol === 1 ? "1" : "0"
-    )}
+    )};
+    
+    pointer-events: ${(props) => (
+      props.inputcontrol === 1 ? "all" : "none"
+    )};
+
   }
 `
