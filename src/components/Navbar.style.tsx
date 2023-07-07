@@ -18,7 +18,7 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
   }
 
   span:hover {
-    border-bottom: 1px solid rgb(0, 0, 0, .5);
+    border-bottom: 1px solid rgb(0, 0, 0, 1);
   }
 
   .optionSelected, .optionSelected:hover {
@@ -33,7 +33,7 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
     padding: 0.5rem;
 
     color: #fff;
-    background-color: transparent;
+    background-color: #000000a1;
     font-size: 1.2rem;
 
     position: absolute;
@@ -49,10 +49,6 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
     text-shadow: .5px .5px 1px #000;
   }
 
-  input:focus {
-    background-color: rgb(0, 0, 0, .3);
-  }
-
   input:focus,
   input:hover {
     border-color: #666;
@@ -60,6 +56,9 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
   }
 
   img {
+    background-color: ${(props) => (
+      props.inputcontrol === 0 ? "#000000a1" : "none"
+    )};
     transition: .3s linear;
     max-width: 50px;
     position: absolute;
@@ -70,6 +69,7 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
     box-shadow: ${(props) => (
       props.inputcontrol === 0 ? ".5px .5px 1.5px #000" : "none"
     )}
+    
   }
 
   .showSearchInput {

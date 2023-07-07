@@ -37,7 +37,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .movie_descript p {
