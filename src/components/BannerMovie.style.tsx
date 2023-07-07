@@ -9,7 +9,6 @@ position: relative;
 }
 
 h1 {
-  margin-bottom: 1rem;
   font-size: 2.5rem;
   font-style: italic;
 }
@@ -34,10 +33,34 @@ h1 {
   z-index: 1;
 }
 
+.movie_descript > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
 .movie_descript p {
   max-width: 50%;
   font-size: 1.1rem;
   text-align: justify;
+}
+
+.btnRedirectMovie {
+  background-color: #000000a1;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 1rem;
+
+  border-radius: 1rem;
+  text-shadow: none;
+
+  box-shadow: 0.5px 1px 1px 1px #000;
+}
+
+.btnRedirectMovie:hover {
+  background-color: #000000be;
 }
 
 .movies_list {
@@ -72,5 +95,4 @@ img {
   background-color: rgb(0, 0, 0, .3);
   z-index: 1;
 }
-
 `
