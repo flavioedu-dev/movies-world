@@ -37,3 +37,9 @@
   overflow: inherit !important;
   overflow-x: clip !important;
 }
+
+@media (max-width: 1366px) {
+  .movie img{
+    width: 9rem;
+  }
+}

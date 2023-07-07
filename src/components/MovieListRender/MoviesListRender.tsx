@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 interface MoviesListRenderProps {
   url: string;
-  onclick: (path: string, title: string, overview: string) => void;
+  onclick: (id: number, path: string, title: string, overview: string) => void;
 }
 
 export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
@@ -27,7 +27,7 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
   useEffect(() => {
     function handleResize(){
       if(window.innerWidth < 1400) {
-        setNumberPerView(6)
+        setNumberPerView(8)
       }else {
         setNumberPerView(8)
       }
@@ -54,6 +54,7 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
               key={movie.id}
               onClick={() =>{
                 onclick(
+                  movie.id,
                   `${movie.backdrop_path}`,
                   `${movie.title}`,
                   `${movie.overview}`
