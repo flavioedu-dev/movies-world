@@ -95,4 +95,20 @@ img {
   background-color: rgb(0, 0, 0, .3);
   z-index: 1;
 }
+
+@media (max-width: 1366px) {
+  .movie_descript {
+    top: 15%;
+    left: 5%;;
+  }
+
+  .movie_descript h1 {
+    font-size: 2rem;
+  }
+
+  .movie_descript p {
+    max-width: 60%;
+    font-size: 1rem;
+  }
+}
 `
