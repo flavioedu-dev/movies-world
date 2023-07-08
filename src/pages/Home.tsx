@@ -39,7 +39,7 @@ const Home = () => {
   }, [movies]);
 
   return (
-    <section>
+    <>
       <Header onclick={(option: string) => setUrlRenderMovies(option)}/>
       <BannerMovie>
         <img
@@ -68,7 +68,7 @@ const Home = () => {
           />
         </div>
       </BannerMovie>
-    </section>
+    </>
   );
 };
 

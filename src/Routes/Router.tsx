@@ -1,7 +1,7 @@
 import App from "../App.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home.tsx";
-import MovieDetails from "../pages/MovieDetails.tsx";
+import MovieDetails from "../pages/MovieDetails/MovieDetails.tsx";
 
 
 const Router = () => {
