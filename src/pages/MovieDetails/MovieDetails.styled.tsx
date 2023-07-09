@@ -19,6 +19,8 @@ img {
   text-decoration: none;
   padding: .5rem 1rem;
   border-radius: 3rem;
+  box-shadow: 0.5px .5px 1px 1px #0000006e;
+  font-weight: 450;
 }
 
 .feedback {
@@ -51,6 +53,10 @@ img {
   margin-right: .3rem;
 }
 
+.descript {
+  margin-bottom: 5rem;
+}
+
 .descript h1 {
   font-size: 2rem;
 }
@@ -72,10 +78,16 @@ img {
 
 .descript p {
   text-align: justify;
-  margin-bottom: 5rem;
   font-size: 1.1rem;
   letter-spacing: 1px;
   text-indent: 1rem;
+}
+
+.descript .release_date {
+  color: #ffffff96;
+  text-indent: 0rem;
+  margin-top: .5rem;
+  font-size: 1rem;
 }
 
 .favorite_movie {

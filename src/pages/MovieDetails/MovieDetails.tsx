@@ -19,6 +19,7 @@ const MovieDetails = () => {
         <div>
           <img src="https://img.icons8.com/?size=512&id=8uAtuJQJ4jhd&format=png" alt="" />
           <span>{details?.vote_count}</span>
+          
         </div>
       </div>
 
@@ -31,6 +32,7 @@ const MovieDetails = () => {
         </ul>
 
         <p>{details?.overview}</p>
+        <p className="release_date">Lançamento: {details?.release_date.split('-').reverse().join('/')}</p>
       </div>
 
       <div className="favorite_movie">
