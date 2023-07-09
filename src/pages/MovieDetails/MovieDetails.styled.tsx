@@ -10,6 +10,17 @@ img {
   padding: 0 1.5rem;
 }
 
+.backToHome {
+  position: fixed;
+  top: 2%;
+  left: 3%;
+  background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
+  color: #000;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 3rem;
+}
+
 .feedback {
   margin: .5rem 0;
   display: flex;
@@ -46,8 +57,10 @@ img {
 
 .descript ul {
   display: flex;
-  gap: 2rem;
-  margin: 1rem 0;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  margin: 1.2rem 0;
 }
 
 .descript ul li {
@@ -60,6 +73,9 @@ img {
 .descript p {
   text-align: justify;
   margin-bottom: 5rem;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-indent: 1rem;
 }
 
 .favorite_movie {

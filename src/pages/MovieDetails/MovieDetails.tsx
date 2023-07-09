@@ -1,29 +1,36 @@
+import { useParams, Link } from "react-router-dom"
 import { StyledMovieDetails } from "./MovieDetails.styled"
+import { useGetMovieDetails } from "../../hooks/useGetMovieDetails"
 
 const MovieDetails = () => {
+  const { id } = useParams()
+
+  const details = useGetMovieDetails(`https://api.themoviedb.org/3/movie/${id?.replace(":", "")}?language=pt-BR`)
+  console.log(details)
+
   return (
     <StyledMovieDetails>
-      <img src="https://image.tmdb.org/t/p/w500/88OGFOcFI04CL4uucb6I7ZzUqD6.jpg" alt="cover" />
+      <Link to="/" className="backToHome">Voltar</Link>
 
-      <div className="feedback">
-        <span>IMDB 6.8</span>
+      <img src={`https://image.tmdb.org/t/p/w500/${details?.poster_path}`} alt="cover" />
+
+      <div className="feedback">  
+        <span>IMDB {details?.vote_average.toFixed(1)}</span>
         <div>
           <img src="https://img.icons8.com/?size=512&id=8uAtuJQJ4jhd&format=png" alt="" />
-          <span>4.8</span>
+          <span>{details?.vote_count}</span>
         </div>
       </div>
 
       <div className="descript">
-        <h1>Elementos</h1>
+        <h1>{details?.title}</h1>
         <ul>
-          <li>Ação</li>
-          <li>Comédia</li>
-          <li>Heróis</li>
+          {details?.genres.map((genre) => (
+            <li key={genre.id}>{genre.name}</li>
+          ))}
         </ul>
 
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, aliquam voluptas? Exercitationem eveniet reprehenderit ad necessitatibus fuga, architecto, totam labore aliquam voluptatibus iste dignissimos, earum magni tempora repudiandae hic cupiditate?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat at commodi praesentium, officiis cum explicabo laborum dolore sit ratione adipisci mollitia voluptatibus error eaque, voluptates ex autem earum dolores facilis!
-        </p>
+        <p>{details?.overview}</p>
       </div>
 
       <div className="favorite_movie">
