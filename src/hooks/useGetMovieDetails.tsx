@@ -7,10 +7,16 @@ export interface MovieDetails {
   poster_path: string;
   backdrop_path: string;
   overview: string;
+  genres: {
+    id: number,
+    name: string
+  }[];
+  vote_average: number;
+  vote_count: number;
 }
 
-export const useGetMovieDetail = ( path: string ): MovieDetails | null => {
-  const [movieDetails, setMoviesDetails] = useState<MovieDetails | null>(null);
+export const useGetMovieDetails = ( path: string): MovieDetails | null => {
+  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
   const options = {
     method: "GET",
@@ -26,7 +32,7 @@ export const useGetMovieDetail = ( path: string ): MovieDetails | null => {
       fetch(`${path}`, options)
         .then((res) => res.json())
         .then((data) => {
-          setMoviesDetails(data.results);
+          setMovieDetails(data);
         })
         .catch((err) => console.log(err));
     };
