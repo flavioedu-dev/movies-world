@@ -99,7 +99,9 @@ img {
   background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
   color: #000;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: bold;
+  letter-spacing: .5px;
+  cursor: pointer;
 
   padding: .5rem 1rem;
   border-radius: 3rem;
@@ -107,8 +109,43 @@ img {
 }
 
 @media (min-width: 501px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
 
+}
+
+@media (min-width: 1050px) {
   max-width: 70%;
   margin: 0 auto;
+
+  height: 100vh;
+  flex-direction: row;
+  align-items: center;
+
+  > img{
+    max-height: 80vh;
+    box-shadow: rgba(0, 0, 0, 0.822) 0px 3px 8px;;
+  }
+
+  .backToHome {
+    top: 4%;
+    left: 3%;
+    padding: .7rem 1.4rem;
+  }
+
+  .favorite_movie {
+    position: relative;
+  }
+
+  .descript h1 {
+    font-size: 1.7rem;
+  }
+
+  .descript p {
+    font-size: 1rem;
+  }
 }
 `
