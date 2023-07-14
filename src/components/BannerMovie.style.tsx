@@ -31,17 +31,12 @@ h1 {
   text-shadow: 2px 1px 2px #000;
   font-style: italic;
   z-index: 1;
-}
 
-.movie_descript > div {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
+  max-width: 50%;
 }
 
 .movie_descript p {
-  max-width: 50%;
+  margin: 1rem 0 2rem 0;
   font-size: 1.1rem;
   text-align: justify;
 }
@@ -98,6 +93,7 @@ img {
 
 @media (max-width: 1366px) {
   .movie_descript {
+    max-width: 60%;
     top: 15%;
     left: 5%;;
   }
@@ -107,8 +103,19 @@ img {
   }
 
   .movie_descript p {
-    max-width: 60%;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
+}
+
+@media (max-width: 768px) {
+  .movie_descript {
+    max-width: 90%;
+    top: 20%;
+  }
+
+  .movie_descript h1 {
+    font-size: 1.6rem;
+  }
+
 }
 `

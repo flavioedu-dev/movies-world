@@ -48,11 +48,9 @@ const Home = () => {
           alt="banner"
         />
         <div className="movie_descript">
-          <div>
             <h1>{dataBanner?.title}</h1>
+            <p>{dataBanner?.overview}</p>
             <Link to={`/movie/:${dataBanner?.movieId}`} className="btnRedirectMovie">Ver filme</Link>
-          </div>
-          <p>{dataBanner?.overview}</p>
         </div>
         <div className="movies_list">
           <MoviesListRender
