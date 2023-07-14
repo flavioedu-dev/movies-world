@@ -44,8 +44,51 @@
   }
 }
 
-@media (max-width: 500px) {
-  .movie {
-    max-width: 160px;
+@media (max-width: 769px) {
+  .list_render {
+    max-width: 90%;
   }
+  .movie img{
+    width: 10.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .list_render {
+    max-width: 95%;
+  }
+
+  .movie img {
+   width: 9.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .list_render {
+    max-width: 80%;
+  }
+
+  .movie img {
+   width: 9.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .list_render {
+    width: 90%;
+  }
+
+  .movie img {
+    width: 9.5rem;
+   }
+}
+
+@media (max-width: 390px) {
+  .list_render {
+    width: 60%;
+  }
+
+  .movie img {
+    width: 9.5rem;
+   }
 }

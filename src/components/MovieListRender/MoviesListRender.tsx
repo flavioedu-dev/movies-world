@@ -28,8 +28,16 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
     function handleResize(){
       if(window.innerWidth > 1280) {
         setNumberPerView(8)
+      }else if (window.innerWidth < 390){
+        setNumberPerView(1)
       }else if (window.innerWidth < 501){
         setNumberPerView(2)
+      }else if (window.innerWidth < 769){
+        setNumberPerView(3)
+      }else if (window.innerWidth < 1050){
+        setNumberPerView(5)
+      }else if (window.innerWidth < 1280){
+        setNumberPerView(7)
       }
     }
 

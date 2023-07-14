@@ -110,7 +110,7 @@ img {
 @media (max-width: 768px) {
   .movie_descript {
     max-width: 90%;
-    top: 20%;
+    top: 15%;
   }
 
   .movie_descript h1 {
