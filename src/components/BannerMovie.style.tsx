@@ -107,6 +107,21 @@ img {
   }
 }
 
+@media (max-width: 1200px) {
+  .movie_descript, .movies_list {
+    opacity: 1;
+  }
+
+  & > img {
+    filter: opacity(.6);
+  }
+
+  .movie p {
+    font-size: .9rem;
+  }
+
+}
+
 @media (max-width: 768px) {
   .movie_descript {
     max-width: 90%;
@@ -116,6 +131,12 @@ img {
   .movie_descript h1 {
     font-size: 1.6rem;
   }
-
 }
+
+@media (max-width: 390px) {
+  .movie_descript p {
+    font-size: 1rem;
+  }
+}
+
 `

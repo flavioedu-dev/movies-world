@@ -26,17 +26,19 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
 
   useEffect(() => {
     function handleResize(){
-      if(window.innerWidth > 1280) {
+      if(window.innerWidth > 1366) {
         setNumberPerView(8)
       }else if (window.innerWidth < 390){
-        setNumberPerView(1)
+        setNumberPerView(2)
       }else if (window.innerWidth < 501){
         setNumberPerView(2)
-      }else if (window.innerWidth < 769){
+      }else if (window.innerWidth < 730){
         setNumberPerView(3)
-      }else if (window.innerWidth < 1050){
+      }else if (window.innerWidth < 840){
+        setNumberPerView(4)
+      }else if (window.innerWidth < 1150){
         setNumberPerView(5)
-      }else if (window.innerWidth < 1280){
+      }else if (window.innerWidth <= 1366){
         setNumberPerView(7)
       }
     }
