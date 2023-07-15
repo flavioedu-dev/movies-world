@@ -2,6 +2,7 @@ import styles from './Header.module.css';
 
 import searchIcon from "../../assets/icons/search-icon.svg"
 import xIcon from "../../assets/icons/x-icon.png"
+import menuIcon from "../../assets/icons/menu.png"
 
 import { useState } from 'react';
 
@@ -52,6 +53,7 @@ const Header = ( { onclick }: HeaderProps) => {
   return (
     <header className={styles.Header}>
       <Navbar inputcontrol={controlSearchInput}>
+      <img src={menuIcon} alt="menu-icon" className="menu-nav" />
       <div>
         {menuOptions.map((menu) => (
           <span key={menu.id} 
