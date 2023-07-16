@@ -22,6 +22,7 @@ interface HeaderProps {
 const Header = ( { onclick }: HeaderProps) => {
   const [optionSelected, setOptionSelected] = useState<number>(1)
   const [controlSearchInput, setControlSearchInput] = useState<number>(0)
+  const [controlShowNav, setControlShowNav] = useState<number>(0)
 
   const menuOptions: menuOption[] = [
     {
@@ -50,10 +51,14 @@ const Header = ( { onclick }: HeaderProps) => {
     controlSearchInput === 0 ? setControlSearchInput(1) : setControlSearchInput(0)
   }
 
+  const showNav = () => {
+    controlShowNav === 0 ? setControlShowNav(1) : setControlShowNav(0)
+  }
+
   return (
     <header className={styles.Header}>
-      <Navbar inputcontrol={controlSearchInput}>
-      <img src={menuIcon} alt="menu-icon" className="menu-nav" />
+      <Navbar input_control={controlSearchInput} show_nav={controlShowNav}>
+      <img src={!controlShowNav ? menuIcon : xIcon} alt="menu-icon" className="menu-nav" onClick={showNav} />
       <div>
         {menuOptions.map((menu) => (
           <span key={menu.id} 

@@ -79,7 +79,7 @@ img {
   }
 
   & > img {
-    filter: opacity(.6);
+    filter: opacity(.5);
   }
 }
 
@@ -113,7 +113,7 @@ img {
   }
 
   & > img {
-    filter: opacity(.6);
+    filter: opacity(.5);
   }
 
   .movie p {
@@ -130,6 +130,11 @@ img {
 
   .movie_descript h1 {
     font-size: 1.6rem;
+  }
+
+  .btnRedirectMovie {
+    padding: .8rem;
+    font-size: .9rem;
   }
 }
 

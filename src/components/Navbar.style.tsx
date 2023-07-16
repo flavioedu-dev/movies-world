@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const Navbar = styled.nav<{ inputcontrol?: number; }>`
+export const Navbar = styled.nav<{ input_control?: number; show_nav?: number; }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
 
   > img {
     background-color: ${(props) => (
-      props.inputcontrol === 0 ? "#000000a1" : "none"
+      props.input_control === 0 ? "#000000a1" : "none"
     )};
     transition: .3s linear;
     max-width: 50px;
@@ -70,18 +70,18 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
     border-radius: 50%;
     padding: 10px;
     box-shadow: ${(props) => (
-      props.inputcontrol === 0 ? ".5px .5px 1.5px #000" : "none"
+      props.input_control === 0 ? ".5px .5px 1.5px #000" : "none"
     )};
     cursor: pointer;
   }
 
   .showSearchInput {
     opacity: ${(props) => (
-      props.inputcontrol === 1 ? "1" : "0"
+      props.input_control === 1 ? "1" : "0"
     )};
     
     pointer-events: ${(props) => (
-      props.inputcontrol === 1 ? "all" : "none"
+      props.input_control === 1 ? "all" : "none"
     )};
 
   }
@@ -89,15 +89,44 @@ export const Navbar = styled.nav<{ inputcontrol?: number; }>`
   @media (max-width: 768px) {
     .menu-nav {
       display: block;
-      background-color: #000000a1;
+      background-color: ${(props) => (
+        props.show_nav === 1 ? "transparent" : "#000000a1"  
+      )};
       left: 3%;
       border-radius: 10px;
       padding: 5px;
-      box-shadow: .5px .5px 1.5px #000;
+      box-shadow: ${(props) => (
+        props.show_nav === 1 ? "none" : ".5px .5px 1.5px #000"
+      )};
+      z-index: 2;
     }
 
     > div {
-      display: none;
+      display: ${(props) => (
+        props.show_nav === 1 ? "flex" : "none"
+      )};
+      flex-direction: column;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #1b1c30e4;
+      max-width: 60%;
+      min-width: 16rem;
+      text-align: right;
+      padding-top: 3rem;
+    }
+
+    > img {
+      top: .8rem;
+    }
+
+    #searchMovieInput {
+      top: 1.2rem;
+    }
+
+    .optionSelected, .optionSelected:hover {
+      border-bottom: none;
+      border-right: 5px solid #fff;
     }
   }
 `
