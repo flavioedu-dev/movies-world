@@ -38,6 +38,35 @@ const Home = () => {
     }
   }, [movies]);
 
+  useEffect(() => {
+    const movieDescript = document.querySelector<HTMLParagraphElement>(".movie_descript p")
+    const paragraphVale = movieDescript?.innerText
+
+    function descriptionResize() {
+      if (movieDescript) {
+        
+        if(window.innerWidth <= 1366) {
+          const LIMIT = 200
+          const aboveLimit = paragraphVale!.length > LIMIT ? "..." : "" 
+          movieDescript.innerText = paragraphVale?.substring(0, 200) + aboveLimit;
+        }
+        else {
+          const LIMIT = 400
+          const aboveLimit = paragraphVale!.length > LIMIT ? "..." : "" 
+          movieDescript.innerText = paragraphVale?.substring(0, 400) + aboveLimit;
+        }
+      }
+    } 
+
+    window.addEventListener("resize", descriptionResize)
+
+    descriptionResize()
+
+    return () => {
+      window.removeEventListener("resize", descriptionResize)
+    }
+  }, [dataBanner])
+
   return (
     <>
       <Header onclick={(option: string) => setUrlRenderMovies(option)}/>

@@ -32,7 +32,7 @@ h1 {
   font-style: italic;
   z-index: 1;
 
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .movie_descript p {
@@ -47,10 +47,8 @@ h1 {
   color: #fff;
   font-weight: bold;
   padding: 1rem;
-
   border-radius: 1rem;
   text-shadow: none;
-
   box-shadow: 0.5px 1px 1px 1px #000;
 }
 
