@@ -8,7 +8,6 @@ import { useGetMovies } from "../../hooks/useGetMovies";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 interface MoviesListRenderProps {
   url: string;
   onclick: (id: number, path: string, title: string, overview: string) => void;
@@ -53,13 +52,13 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
   }, [])
 
   return (
+    <>
     <Swiper
     slidesPerView={numberPerView}
     pagination={{ clickable: true }} 
     className="list_render"
     >
-      {movies &&
-        movies.map((movie) => (
+      {movies && movies.map((movie) => (
             <SwiperSlide
               key={movie.id}
               onClick={() =>{
@@ -82,5 +81,6 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
             </SwiperSlide>
         ))}
     </Swiper>
+    </>
   );
 };

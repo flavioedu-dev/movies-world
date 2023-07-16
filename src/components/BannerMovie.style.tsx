@@ -4,6 +4,7 @@ export const BannerMovie = styled.section`
 
 position: relative;
 
+
 .movie_descript, .movies_list {
   transition: .3s ease-in;
 }
@@ -14,6 +15,7 @@ h1 {
 }
 
 .movie_item {
+  opacity: 0;
   width: 100%;
   height: 100vh;
   vertical-align: top;

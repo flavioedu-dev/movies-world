@@ -10,6 +10,9 @@ import Header from "../components/Header/Header";
 import { BannerMovie } from "../components/BannerMovie.style";
 import { MoviesListRender } from "../components/MovieListRender/MoviesListRender";
 
+// MUI
+import { Skeleton } from '@mui/material';
+
 interface BannerMovie {
   movieId: number;
   url_banner: string;
@@ -20,6 +23,7 @@ interface BannerMovie {
 const Home = () => {
   const [urlRenderMovies, setUrlRenderMovies] = useState<string>("https://api.themoviedb.org/3/movie/now_playing?language=pt-BR")
   const [dataBanner, setDataBanner] = useState<BannerMovie>();
+  const [loadingBanner, setLoadingBanner] = useState<boolean>(true)
 
   const movies: movies[] = useGetMovies(urlRenderMovies);
 
@@ -68,30 +72,47 @@ const Home = () => {
   }, [dataBanner])
 
   return (
-    <>
+    <>  
       <Header onclick={(option: string) => setUrlRenderMovies(option)}/>
       <BannerMovie>
+        {loadingBanner && (
+          <Skeleton 
+          variant="rectangular"
+          animation="wave"
+          sx={{ 
+            width: '100%',
+            height: '100%',
+            bgcolor: '#1b1c309b',
+            position: 'absolute',
+            zIndex: 1
+          }} />
+        )}
         <img
           className="movie_item"
           src={`https://image.tmdb.org/t/p/original${dataBanner?.url_banner}`}
           alt="banner"
+          onLoad={() => setLoadingBanner(false)}
+          style={{ opacity: loadingBanner ? 0 : 1 }}
         />
-        <div className="movie_descript">
-            <h1>{dataBanner?.title}</h1>
-            <p>{dataBanner?.overview}</p>
-            <Link to={`/movie/:${dataBanner?.movieId}`} className="btnRedirectMovie">Ver filme</Link>
-        </div>
+        {!loadingBanner  && (
+          <div className="movie_descript">
+              <h1>{dataBanner?.title}</h1>
+              <p>{dataBanner?.overview}</p>
+              <Link to={`/movie/:${dataBanner?.movieId}`} className="btnRedirectMovie">Ver filme</Link>
+          </div>
+        )}
         <div className="movies_list">
           <MoviesListRender
             url={`${urlRenderMovies}`}
-            onclick={(id: number, path: string, title: string, overview: string) =>
+            onclick={(id: number, path: string, title: string, overview: string) => {
               setDataBanner({
                 movieId: id,
                 url_banner: path,
                 title,
                 overview,
               })
-            }
+              setLoadingBanner(true)
+            }}
           />
         </div>
       </BannerMovie>
