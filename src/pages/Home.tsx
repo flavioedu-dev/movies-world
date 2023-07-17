@@ -105,13 +105,16 @@ const Home = () => {
           <MoviesListRender
             url={`${urlRenderMovies}`}
             onclick={(id: number, path: string, title: string, overview: string) => {
-              setDataBanner({
-                movieId: id,
-                url_banner: path,
-                title,
-                overview,
-              })
-              setLoadingBanner(true)
+              if(dataBanner?.movieId !== id){
+                setDataBanner({
+                  movieId: id,
+                  url_banner: path,
+                  title,
+                  overview,
+                })
+                setLoadingBanner(true)
+              }
+            
             }}
           />
         </div>
