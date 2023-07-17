@@ -45,19 +45,19 @@ const Home = () => {
   useEffect(() => {
     const movieDescript = document.querySelector<HTMLParagraphElement>(".movie_descript p")
     const paragraphVale = movieDescript?.innerText
-
+    
     function descriptionResize() {
       if (movieDescript) {
         
         if(window.innerWidth <= 1366) {
           const LIMIT = 200
           const aboveLimit = paragraphVale!.length > LIMIT ? "..." : "" 
-          movieDescript.innerText = paragraphVale?.substring(0, 200) + aboveLimit;
+          movieDescript.innerText = paragraphVale?.substring(0, LIMIT) + aboveLimit;
         }
         else {
           const LIMIT = 400
           const aboveLimit = paragraphVale!.length > LIMIT ? "..." : "" 
-          movieDescript.innerText = paragraphVale?.substring(0, 400) + aboveLimit;
+          movieDescript.innerText = paragraphVale?.substring(0, LIMIT) + aboveLimit;
         }
       }
     } 
@@ -69,7 +69,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("resize", descriptionResize)
     }
-  }, [dataBanner])
+  }, [loadingBanner, dataBanner])
 
   return (
     <>  
@@ -113,8 +113,7 @@ const Home = () => {
                   overview,
                 })
                 setLoadingBanner(true)
-              }
-            
+              }       
             }}
           />
         </div>

@@ -114,7 +114,6 @@ img {
   align-items: center;
   max-width: 80%;
   margin: 0 auto;
-
 }
 
 @media (min-width: 1050px) {
@@ -146,6 +145,12 @@ img {
 
   .descript p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .descript h1 {
+    font-size: 1.5rem;
   }
 }
 `
