@@ -1,5 +1,6 @@
 .list_render {
   max-width: 95%;
+  margin-bottom: 1rem;
 }
 
 .movie {
@@ -18,11 +19,6 @@
 
 .movie img:hover {
   transform: scale(1.05);
-}
-
-.movie p {
-  max-width: 100%;
-  font-weight: 500;
 }
 
 .movie.selected{

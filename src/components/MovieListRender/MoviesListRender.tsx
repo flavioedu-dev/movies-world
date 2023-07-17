@@ -77,7 +77,6 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={`${movie.id}`}
               />
-              <p>{movie.title}</p>
             </SwiperSlide>
         ))}
     </Swiper>
