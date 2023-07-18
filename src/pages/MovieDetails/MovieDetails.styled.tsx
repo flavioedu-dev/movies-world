@@ -116,8 +116,9 @@ img {
   margin: 0 auto;
 }
 
+
 @media (min-width: 1050px) {
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
 
   height: 100vh;
@@ -148,9 +149,18 @@ img {
   }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 1200px) {
+  max-width: 80%;
+}
+
+
+@media (max-width: 600px) {
   .descript h1 {
     font-size: 1.5rem;
+  }
+
+  .descript ul {
+    column-gap: 1rem;
   }
 }
 `
