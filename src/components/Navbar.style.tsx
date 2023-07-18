@@ -40,6 +40,7 @@ export const Navbar = styled.nav<{ input_control?: number; show_nav?: number; }>
     font-size: 1.2rem;
 
     position: absolute;
+    top: .6rem;
     right: 3.4%;
     box-shadow: inset .5px 1px 1px 1px #000;
     outline: none;
