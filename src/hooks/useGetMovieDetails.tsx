@@ -16,6 +16,8 @@ export interface MovieDetails {
 }
 
 export const useGetMovieDetails = ( path: string): MovieDetails | null => {
+  const REACT_API_BEARER = import.meta.env.VITE_API_BEARER
+
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
   const options = {
@@ -23,7 +25,7 @@ export const useGetMovieDetails = ( path: string): MovieDetails | null => {
     accept: "application/json",
     headers: {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMmFiYWZlMzAxZWUxN2RiNDA5ZmM3YzJhMjAxNzZiNyIsInN1YiI6IjY0OTFkN2QzYzNjODkxMDBlYjM0NjkxOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tr8SiKSYwPdED7QWFJKw0N3PoWUbE2cn11eOxJXK8UU",
+        `Bearer ${REACT_API_BEARER}`,
     },
   };
 

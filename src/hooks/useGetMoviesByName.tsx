@@ -9,10 +9,11 @@ export interface movies {
   overview: string;
 }
 
-export const useGetMovies = ( path: string ): movies[] => {
+export const useGetMoviesByName = ( name: string ): movies[] => {
+  const REACT_API_KEY = import.meta.env.VITE_API_KEY
   const REACT_API_BEARER = import.meta.env.VITE_API_BEARER
 
-  const [moviesList, setMoviesList] = useState<movies[]>([]);
+  const [moviesByNameList, setMoviesByNameList] = useState<movies[]>([]);
 
   const options = {
     method: "GET",
@@ -24,20 +25,20 @@ export const useGetMovies = ( path: string ): movies[] => {
   };
 
   try {
-    const topRatedMoviesList = () => {
-      fetch(`${path}`, options)
+    const getMoviesByName = () => {
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_API_KEY}&query=${name}`, options)
         .then((res) => res.json())
         .then((data) => {
-          setMoviesList(data.results);
+          setMoviesByNameList(data.results);
         })
         .catch((err) => console.log(err));
     };
   
     useEffect(() => {
-      topRatedMoviesList();
-    }, [path]);
+      getMoviesByName();
+    }, [name]);
 
-    return moviesList
+    return moviesByNameList
   } catch (error) {
     console.log(error)
     return []
