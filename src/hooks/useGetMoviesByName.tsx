@@ -26,7 +26,7 @@ export const useGetMoviesByName = ( name: string ): movies[] => {
 
   try {
     const getMoviesByName = () => {
-      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_API_KEY}&query=${name}`, options)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_API_KEY}&query=${name}&language=pt-BR`, options)
         .then((res) => res.json())
         .then((data) => {
           setMoviesByNameList(data.results);
