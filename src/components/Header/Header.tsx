@@ -1,15 +1,14 @@
-import styles from './Header.module.css';
+import styles from "./Header.module.css";
 
-import searchIcon from "../../assets/icons/search-icon.svg"
-import xIcon from "../../assets/icons/x-icon.png"
-import menuIcon from "../../assets/icons/menu.png"
+import searchIcon from "../../assets/icons/search-icon.svg";
+import xIcon from "../../assets/icons/x-icon.png";
+import menuIcon from "../../assets/icons/menu.png";
 
-import { FormEvent, useState } from 'react';
+import { useState } from "react";
 
 // Components
 import { Navbar } from "../Navbar.style";
-
-import { useNavigate } from "react-router-dom"
+import { SearchForm } from "../SearchInput/SearchInput.tsx";
 
 interface menuOption {
   id: number;
@@ -21,12 +20,10 @@ interface HeaderProps {
   onclick: (option: string) => void;
 }
 
-const Header = ( { onclick }: HeaderProps) => {
-  const [optionSelected, setOptionSelected] = useState<number>(1)
-  const [controlSearchInput, setControlSearchInput] = useState<number>(0)
-  const [controlShowNav, setControlShowNav] = useState<number>(0)
-
-  const navigate = useNavigate()
+const Header = ({ onclick }: HeaderProps) => {
+  const [optionSelected, setOptionSelected] = useState<number>(1);
+  const [controlSearchInput, setControlSearchInput] = useState<number>(0);
+  const [controlShowNav, setControlShowNav] = useState<number>(0);
 
   const menuOptions: menuOption[] = [
     {
@@ -52,45 +49,44 @@ const Header = ( { onclick }: HeaderProps) => {
   ];
 
   const showSearchInput = () => {
-    controlSearchInput === 0 ? setControlSearchInput(1) : setControlSearchInput(0)
-  }
+    controlSearchInput === 0
+      ? setControlSearchInput(1)
+      : setControlSearchInput(0);
+  };
 
   const showNav = () => {
-    controlShowNav === 0 ? setControlShowNav(1) : setControlShowNav(0)
-  }
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const searchValue = formData.get("search")
-    console.log(searchValue)
-    navigate(`/movies?name=${searchValue}`)
-
-  }
+    controlShowNav === 0 ? setControlShowNav(1) : setControlShowNav(0);
+  };
 
   return (
     <header className={styles.Header}>
       <Navbar input_control={controlSearchInput} show_nav={controlShowNav}>
-      <img src={!controlShowNav ? menuIcon : xIcon} alt="menu-icon" className="menu-nav" onClick={showNav} />
-      <div>
-        {menuOptions.map((menu) => (
-          <span key={menu.id} 
-            onClick={() => {
-              onclick(`${menu.path}`),
-              setOptionSelected(menu.id)
-            }
-              
-            } 
-            className={optionSelected === menu.id ? "optionSelected" : ""}
-          >
-            {menu.name}
-          </span>
-        ))}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" id="searchMovieInput" name="search" placeholder="Buscar filme" className={"showSearchInput"} />
-      </form>
-      <img src={!controlSearchInput ? searchIcon : xIcon} alt="search-icon" id="searchMovie" onClick={showSearchInput}/>
+        <img
+          src={!controlShowNav ? menuIcon : xIcon}
+          alt="menu-icon"
+          className="menu-nav"
+          onClick={showNav}
+        />
+        <div>
+          {menuOptions.map((menu) => (
+            <span
+              key={menu.id}
+              onClick={() => {
+                onclick(`${menu.path}`), setOptionSelected(menu.id);
+              }}
+              className={optionSelected === menu.id ? "optionSelected" : ""}
+            >
+              {menu.name}
+            </span>
+          ))}
+        </div>
+        <SearchForm />
+        <img
+          src={!controlSearchInput ? searchIcon : xIcon}
+          alt="search-icon"
+          id="searchMovie"
+          onClick={showSearchInput}
+        />
       </Navbar>
     </header>
   );
