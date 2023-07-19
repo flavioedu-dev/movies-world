@@ -20,7 +20,7 @@ const SearchMovie = () => {
 
   return (
     <main>
-      <SearchForm />
+      <SearchForm value={name || ""}/>
         <SearchContainer>
           {moviesByName.map((movie) => (
             <div key={movie.id} onClick={() => handleClick(movie.id)}>
