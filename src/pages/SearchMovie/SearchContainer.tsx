@@ -2,8 +2,7 @@ import { styled } from "styled-components"
 
 export const SearchContainer = styled.section`
 max-width: 80%;
-margin: 0 auto;
-margin-top: 5rem;
+margin: 5rem auto;
 
 display: flex;
 justify-content: center;
