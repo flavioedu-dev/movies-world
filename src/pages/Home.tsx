@@ -89,11 +89,11 @@ const Home = () => {
         )}
         <img
           className="movie_item"
-          src={`https://image.tmdb.org/t/p/original${dataBanner?.url_banner}`}
+          src={`https://image.tmdb.org/t/p/original/${dataBanner?.url_banner}`}
           alt="banner"
           onLoad={() => setLoadingBanner(false)}
           style={{ opacity: loadingBanner ? 0 : 1 }}
-        />
+        />     
         {!loadingBanner  && (
           <div className="movie_descript">
               <h1>{dataBanner?.title}</h1>

@@ -11,7 +11,7 @@ const MovieDetails = () => {
     <StyledMovieDetails>
       <Link to="/" className="backToHome">Voltar</Link>
 
-      <img src={`https://image.tmdb.org/t/p/w500/${details?.poster_path}`} alt="cover" />
+      {details && <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt="cover" />}
 
       <section className="details-container">      
 
