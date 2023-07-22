@@ -31,4 +31,30 @@ div p {
   margin-top: .25rem;
   font-weight: 500;
 }
+
+@media (max-width: 1440px) {
+  max-width: 90%;
+}
+
+@media (max-width: 925px) {
+  img {
+    max-width: 12rem;
+    height: 18rem;
+  }
+
+  div p {
+    max-width: 12rem;
+  }
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 10rem;
+    height: 15rem;
+  }
+
+  div p {
+    max-width: 10rem;
+  }
+}
 `
