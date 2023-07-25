@@ -57,4 +57,15 @@ div p {
     max-width: 10rem;
   }
 }
+
+@media (max-width: 420px) {
+  img {
+    max-width: 8rem;
+    height: 13rem;
+  }
+
+  div p {
+    max-width: 8rem;
+  }
+}
 `
