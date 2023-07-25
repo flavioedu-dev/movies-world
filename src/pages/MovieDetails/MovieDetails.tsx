@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import { StyledMovieDetails } from "./MovieDetails.styled"
 import { useGetMovieDetails } from "../../hooks/useGetMovieDetails"
 
@@ -7,9 +7,12 @@ const MovieDetails = () => {
 
   const details = useGetMovieDetails(`https://api.themoviedb.org/3/movie/${id?.replace(":", "")}?language=pt-BR`)
 
+  const navigate = useNavigate()
+
   return (
     <StyledMovieDetails>
-      <Link to="/" className="backToHome">Voltar</Link>
+      {/* <Link to="/" className="backToHome">Voltar</Link> */}
+      <button className="backToHome" onClick={() => navigate(-1)}>Voltar</button>
 
       {details && <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt="cover" />}
 

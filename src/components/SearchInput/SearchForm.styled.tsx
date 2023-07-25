@@ -13,7 +13,7 @@ input {
     font-size: 1.2rem;
 
     position: absolute;
-    top: 1.2rem;
+    top: .75rem;
     right: 50%;
     transform: translateX(50%);
     box-shadow: inset .5px 1px 1px 1px #000;

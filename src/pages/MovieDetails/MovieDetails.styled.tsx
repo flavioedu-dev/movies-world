@@ -11,7 +11,12 @@ img {
   padding: 0 1.5rem;
 }
 
+.backToHome, .favorite_movie {
+  box-shadow: #0000008b 0px 5px 15px;
+}
+
 .backToHome {
+  border: none;
   position: fixed;
   top: 2%;
   left: 3%;
@@ -20,8 +25,7 @@ img {
   text-decoration: none;
   padding: .5rem 1rem;
   border-radius: 3rem;
-  box-shadow: 0.5px .5px 1px 1px #0000006e;
-  font-weight: 450;
+  font-weight: 550;
 }
 
 .feedback {
@@ -99,7 +103,7 @@ img {
   background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
   color: #000;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 550;
   letter-spacing: .5px;
   cursor: pointer;
 
