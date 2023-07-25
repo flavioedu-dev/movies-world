@@ -13,18 +13,22 @@ img {
 
 .backToHome, .favorite_movie {
   box-shadow: #0000008b 0px 5px 15px;
+  background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 550;
+  letter-spacing: .5px;
+  cursor: pointer;
+
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 3rem;
 }
 
 .backToHome {
-  border: none;
   position: fixed;
   top: 2%;
   left: 3%;
-  background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
-  color: #000;
-  text-decoration: none;
-  padding: .5rem 1rem;
-  border-radius: 3rem;
   font-weight: 550;
 }
 
@@ -99,17 +103,6 @@ img {
   position: fixed;
   bottom: 1.2rem;
   right: .7rem;
-
-  background: linear-gradient(to right, rgb(211, 176, 51) 10%, rgb(224, 196, 94) 90%);
-  color: #000;
-  font-size: 1rem;
-  font-weight: 550;
-  letter-spacing: .5px;
-  cursor: pointer;
-
-  padding: .5rem 1rem;
-  border-radius: 3rem;
-  border: none;
 }
 
 @media (min-width: 501px) {
@@ -154,7 +147,11 @@ img {
 }
 
 @media (min-width: 1200px) {
-  max-width: 80%;
+  max-width: 75%;
+
+  .descript {
+    margin-bottom: 2.5rem;
+  }
 }
 
 
