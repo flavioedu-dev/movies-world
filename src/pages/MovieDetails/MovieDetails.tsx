@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { StyledMovieDetails } from "./MovieDetails.styled"
 import { useGetMovieDetails } from "../../hooks/useGetMovieDetails"
 
@@ -11,7 +11,6 @@ const MovieDetails = () => {
 
   return (
     <StyledMovieDetails>
-      {/* <Link to="/" className="backToHome">Voltar</Link> */}
       <button className="backToHome" onClick={() => navigate(-1)}>Voltar</button>
 
       {details && <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt="cover" />}

@@ -10,7 +10,7 @@ flex-wrap: wrap;
 gap: 3rem;
 text-align: center;
 
-img {
+img, .skeleton_cover {
   max-width: 15rem;
   height: 22.5rem;
   border-radius: 5px;
@@ -21,6 +21,10 @@ img {
 
 img:hover {
   transform: scale(1.03);
+}
+
+.skeleton_cover {
+  background-color: #272836;
 }
 
 div p {
@@ -37,7 +41,7 @@ div p {
 }
 
 @media (max-width: 925px) {
-  img {
+  img, .skeleton_cover  {
     max-width: 12rem;
     height: 18rem;
   }
@@ -48,7 +52,7 @@ div p {
 }
 
 @media (max-width: 768px) {
-  img {
+  img, .skeleton_cover  {
     max-width: 10rem;
     height: 15rem;
   }
@@ -59,7 +63,7 @@ div p {
 }
 
 @media (max-width: 420px) {
-  img {
+  img, .skeleton_cover  {
     max-width: 8rem;
     height: 13rem;
   }
