@@ -1,9 +1,24 @@
 import { styled } from "styled-components";
 
-export const StyledMovieDetails = styled.section`
+export const StyledMovieDetails = styled.section<{ control_load?: boolean }>`
 
-img {
+width: 100%;
+
+> img {
   max-width: 100%;
+  max-height: 100%;
+  position: ${(props) => (
+    props.control_load ? "absolute" : "relative"
+  )};
+  opacity: ${(props) => (
+    props.control_load ? "0" : "1"
+  )};
+}
+
+.skeleton_details {
+  width: 100%;
+  height: 80%;
+  background-color: #272836;
 }
 
 .details-container {
@@ -23,6 +38,7 @@ img {
   padding: .5rem 1rem;
   border: none;
   border-radius: 3rem;
+  z-index: 1;
 }
 
 .backToHome {
@@ -124,7 +140,7 @@ img {
 
   > img{
     max-height: 80vh;
-    box-shadow: rgba(0, 0, 0, 0.822) 0px 3px 8px;;
+    box-shadow: rgba(0, 0, 0, 0.822) 0px 3px 8px;
   }
 
   .backToHome {
@@ -154,6 +170,36 @@ img {
   }
 }
 
+@media (min-width: 1370px) {
+  .skeleton_details {
+    width: 850px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .skeleton_details {
+    width: 140%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 1200px) {
+  width: 75%;
+
+  .skeleton_details {
+    width: 210%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 1049px) {
+  .skeleton_details {
+    width: 500px;
+    height: 750px;
+  }
+}
+
+
 
 @media (max-width: 600px) {
   .descript h1 {
@@ -162,6 +208,14 @@ img {
 
   .descript ul {
     column-gap: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  width: 100vw;
+
+  .skeleton_details {
+    height: 70vh;
   }
 }
 `
