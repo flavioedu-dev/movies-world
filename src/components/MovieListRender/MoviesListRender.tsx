@@ -8,6 +8,10 @@ import { useGetMovies } from "../../hooks/useGetMovies";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// MovieProps
+import { movies } from "../../hooks/useGetMovies";
+
 interface MoviesListRenderProps {
   url: string;
   onclick: (id: number, path: string, title: string, overview: string) => void;
@@ -51,6 +55,17 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
     }
   }, [])
 
+
+  const handleClick = (movie: movies): void=> {
+    onclick(
+      movie.id,
+      `${movie.backdrop_path}`,
+      `${movie.title}`,
+      `${movie.overview}`
+    )
+    setSelectedMovie(movie?.id) 
+  }
+
   return (
     <>
     <Swiper
@@ -61,16 +76,8 @@ export const MoviesListRender = ({ url, onclick }: MoviesListRenderProps) => {
       {movies && movies.map((movie) => (
             <SwiperSlide
               key={movie.id}
-              onClick={() =>{
-                onclick(
-                  movie.id,
-                  `${movie.backdrop_path}`,
-                  `${movie.title}`,
-                  `${movie.overview}`
-                )
-                setSelectedMovie(movie?.id)
-              }
-              }
+              onClick={() => handleClick(movie)}
+              onTouchEnd={() => handleClick(movie)}
               className={selectedMovie === movie.id ? "movie selected" : "movie"}
             >
               <img
