@@ -1,18 +1,21 @@
 import { useState } from "react";
 
 import { useLocation, useNavigate } from "react-router-dom";
-
-import { SearchForm } from "../../components/SearchInput/SearchInput";
 import { useGetMoviesByName } from "../../hooks/useGetMoviesByName";
+
+// Components
+import { SearchForm } from "../../components/SearchInput/SearchInput";
 import { SearchContainer } from "./SearchContainer";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 import { Skeleton } from "@mui/material";
-
 
 const SearchMovie = () => {
   const navigate = useNavigate();
 
-  const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>({});
+  const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   const handleImageLoad = (imageUrl: string) => {
     setLoadedImages((prevLoadedImages) => ({
@@ -39,28 +42,50 @@ const SearchMovie = () => {
 
   return (
     <main>
+      <BackButton>Voltar</BackButton>
       <SearchForm value={name || ""} />
-      <SearchContainer> 
+      <SearchContainer>
         {moviesByName.map((movie) => (
           <div
             key={movie.id}
             onClick={() => handleClick(movie.id)}
-            style={{ pointerEvents: loadedImages[`https://image.tmdb.org/t/p/w500${movie.poster_path}`] ? "all" : "none"}}
+            style={{
+              pointerEvents: loadedImages[
+                `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              ]
+                ? "all"
+                : "none",
+            }}
           >
-            {loadedImages[`https://image.tmdb.org/t/p/w500${movie.poster_path}`] ? null : 
+            {loadedImages[
+              `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            ] ? null : (
               <Skeleton
-              variant="rectangular"
-              animation="pulse"
-              className="skeleton_cover"
-            />}
+                variant="rectangular"
+                animation="pulse"
+                className="skeleton_cover"
+              />
+            )}
             <img
-              style={{ 
-                display: loadedImages[`https://image.tmdb.org/t/p/w500${movie.poster_path}`] ? 'block' : 'none'
+              style={{
+                display: loadedImages[
+                  `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                ]
+                  ? "block"
+                  : "none",
               }}
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={`${movie.title}`}
-              onLoad={() => handleImageLoad(`https://image.tmdb.org/t/p/w500${movie.poster_path}`)}
-              onError={() => handleImageError(`https://image.tmdb.org/t/p/w500${movie.poster_path}`)}
+              onLoad={() =>
+                handleImageLoad(
+                  `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                )
+              }
+              onError={() =>
+                handleImageError(
+                  `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                )
+              }
             />
             <p>{movie.title}</p>
           </div>
