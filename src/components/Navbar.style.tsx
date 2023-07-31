@@ -72,20 +72,46 @@ export const Navbar = styled.nav<{ $input_control?: number; $show_nav?: number; 
     }
 
     > div {
-      display: ${(props) => (
-        props.$show_nav === 1 ? "flex" : "none"
-      )};
+      display: flex;
       flex-direction: column;
       position: absolute;
       left: 0;
       top: 0;
-      background-color: #1b1c30e4;
+      background-color: #1b1c30;
       max-width: 60%;
       min-width: 16rem;
       text-align: right;
       padding-top: 3rem;
-    }
+      border-bottom-right-radius: 5px;
 
+      transition: .3s;
+      opacity: ${(props) => (
+        props.$show_nav === 1 ? 1 : 0
+      )};
+      pointer-events: ${(props) => (
+        props.$show_nav === 1 ? "all" : "none"
+      )};
+      animation: ${(props) => (
+        props.$show_nav === 1 ? "showMenu .5s ease-in-out" : "hiddenMenu .5s ease-in-out"
+      )};
+
+      @keyframes showMenu {
+        from {
+          transform: translateX(-220px);
+        } to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes hiddenMenu {
+        from {
+          transform: translateX(0px);
+        } to {
+          transform: translateX(-220px);
+        }
+      }
+    }
+    
     > img {
       top: .8rem;
     }
