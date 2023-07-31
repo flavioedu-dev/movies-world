@@ -59,8 +59,8 @@ const Header = ({ onclick }: HeaderProps) => {
   };
 
   return (
-    <header className={styles.Header}>
-      <Navbar input_control={controlSearchInput} show_nav={controlShowNav}>
+    <header className={styles.Header}>  
+      <Navbar $input_control={controlSearchInput} $show_nav={controlShowNav}>
         <img
           src={!controlShowNav ? menuIcon : xIcon}
           alt="menu-icon"

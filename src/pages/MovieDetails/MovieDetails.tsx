@@ -18,7 +18,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   return (
-    <StyledMovieDetails control_load={loadingCover}>
+    <StyledMovieDetails $control_load={loadingCover}>
       <button className="backToHome" onClick={() => navigate(-1)}>
         Voltar
       </button>

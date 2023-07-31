@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StyledMovieDetails = styled.section<{ control_load?: boolean }>`
+export const StyledMovieDetails = styled.section<{ $control_load?: boolean; }>`
 
 width: 100%;
 
@@ -8,10 +8,10 @@ width: 100%;
   max-width: 100%;
   max-height: 100%;
   position: ${(props) => (
-    props.control_load ? "absolute" : "relative"
+    props.$control_load ? "absolute" : "relative"
   )};
   opacity: ${(props) => (
-    props.control_load ? "0" : "1"
+    props.$control_load ? "0" : "1"
   )};
 }
 
