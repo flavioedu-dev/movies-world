@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { StyledMovieDetails } from "./MovieDetails.styled";
 import { useGetMovieDetails } from "../../hooks/useGetMovieDetails";
+
+import { BackButton } from "../../components/BackButton/BackButton";
 
 // MUI
 import { Skeleton } from "@mui/material";
@@ -15,13 +17,11 @@ const MovieDetails = () => {
     `https://api.themoviedb.org/3/movie/${id?.replace(":", "")}?language=pt-BR`
   );
 
-  const navigate = useNavigate();
-
   return (
     <StyledMovieDetails $control_load={loadingCover}>
-      <button className="backToHome" onClick={() => navigate(-1)}>
+      <BackButton>
         Voltar
-      </button>
+      </BackButton>
 
       {loadingCover && (
         <Skeleton
@@ -63,8 +63,10 @@ const MovieDetails = () => {
             Lançamento: {details?.release_date.split("-").reverse().join("/")}
           </p>
         </div>
-
-        <button className="favorite_movie">Adicionar favorito</button>
+    
+        <BackButton favoriteClass="favorite_movie">
+          Adicionar Favorito
+        </BackButton>
       </section>
     </StyledMovieDetails>
   );

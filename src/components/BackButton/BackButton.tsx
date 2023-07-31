@@ -4,15 +4,16 @@ import { StyledBackButton } from "./StyledBackButton";
 import { useNavigate } from "react-router-dom";
 
 interface IBackButtonProps {
-  children: ReactNode
+  children: ReactNode;
+  favoriteClass?: string;
 }
 
-export const BackButton = ({ children }: IBackButtonProps) => {
+export const BackButton = ({ children, favoriteClass }: IBackButtonProps) => {
 
   const navigate = useNavigate()
 
   return (
-    <StyledBackButton onClick={() => navigate(-1)}>
+    <StyledBackButton className={favoriteClass} onClick={() => navigate(-1)}>
       {children}
     </StyledBackButton>
   )
