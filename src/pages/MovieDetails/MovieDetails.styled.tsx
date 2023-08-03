@@ -68,7 +68,7 @@ width: 100%;
 .descript ul {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 2rem;
+  column-gap: 1rem;
   row-gap: 1rem;
   margin: 1.2rem 0;
 }
@@ -122,7 +122,7 @@ width: 100%;
   }
 
   .favorite_movie {
-    position: relative;
+    position: sticky;
   }
 
   .descript h1 {

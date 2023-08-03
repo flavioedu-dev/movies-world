@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useGetMoviesByName } from "../../hooks/useGetMoviesByName";
 
 // Components
-import { SearchForm } from "../../components/SearchInput/SearchInput";
+import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { SearchContainer } from "./SearchContainer";
 import { BackButton } from "../../components/BackButton/BackButton";
 
@@ -43,7 +43,7 @@ const SearchMovie = () => {
   return (
     <main>
       <BackButton>Voltar</BackButton>
-      <SearchForm value={name || ""} />
+      <SearchInput value={name || ""} />
       <SearchContainer>
         {moviesByName.map((movie) => (
           <div

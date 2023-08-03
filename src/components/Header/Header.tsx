@@ -8,7 +8,7 @@ import { useState } from "react";
 
 // Components
 import { Navbar } from "../Navbar.style";
-import { SearchForm } from "../SearchInput/SearchInput.tsx";
+import { SearchInput } from "../SearchInput/SearchInput.tsx";
 
 interface menuOption {
   id: number;
@@ -80,11 +80,11 @@ const Header = ({ onclick }: HeaderProps) => {
             </span>
           ))}
         </div>
-        <SearchForm />
+        <SearchInput controlSearchIcon={controlSearchInput} />
         <img
           src={!controlSearchInput ? searchIcon : xIcon}
-          alt="search-icon"
-          id="searchMovie"
+          alt="search-or-closed"
+          id="searchOrClosed"
           onClick={showSearchInput}
         />
       </Navbar>

@@ -1,22 +1,27 @@
+import searchIcon from "../../assets/icons/search-icon.svg";
+
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-import { SearchInput } from "./SearchForm.styled";
+import { SearchForm } from "./SearchForm.styled";
+
 
 interface SearchFormProps {
   value?: string;
+  controlSearchIcon?: number;
 }
 
-export const SearchForm = ( { value }: SearchFormProps ) => {
+export const SearchInput = ( { value, controlSearchIcon }: SearchFormProps ) => {
   const [inputValue, setInputValue] = useState(value || "")
 
   const navigate = useNavigate()
-  
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+
+  const searchMovie = (e: FormEvent<HTMLElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const searchValue = formData.get("search")
-    navigate(`/movies?name=${searchValue}`)
+    const searchInput = document.getElementById("searchMovieInput") as HTMLInputElement
+    if(searchInput) {
+      navigate(`/movies?name=${searchInput.value}`)
+    }
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,8 +29,16 @@ export const SearchForm = ( { value }: SearchFormProps ) => {
   }
 
   return (
-    <SearchInput onSubmit={handleSubmit}>
-      <input type="text" id="searchMovieInput" name="search" value={inputValue} placeholder="Buscar filme" className={"showSearchInput"}  onChange={handleChange}/>
-    </SearchInput>
+    <SearchForm onSubmit={searchMovie} $show_search={controlSearchIcon}>
+      <div>
+        <input type="text" id="searchMovieInput" name="search" value={inputValue} placeholder="Buscar filme" className={"showSearchInput"}  onChange={handleChange}/>
+        <img
+          src={searchIcon}
+          alt="search-icon"
+          id="searchMovie"
+          onClick={searchMovie}
+        />
+      </div>
+    </SearchForm>
   )
 }
