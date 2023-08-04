@@ -45,6 +45,7 @@ input:hover {
   opacity: ${(props) => (
     props.$show_search ? 1 : 0
   )};
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) and (min-width: 1101px) {
@@ -56,6 +57,12 @@ input:hover {
 @media (max-width: 1100px) {
   > div {
     top: 1.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  input {
+    max-width: 220px;
   }
 }
 `

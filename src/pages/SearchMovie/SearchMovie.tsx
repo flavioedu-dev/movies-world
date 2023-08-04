@@ -43,7 +43,7 @@ const SearchMovie = () => {
   return (
     <main>
       <BackButton>Voltar</BackButton>
-      <SearchInput value={name || ""} />
+      <SearchInput value={name || ""} controlSearchIcon={1}/>
       <SearchContainer>
         {moviesByName.map((movie) => (
           <div
