@@ -19,6 +19,11 @@ img, .skeleton_cover {
   cursor: pointer;
 }
 
+.skeleton_cover {
+    width: 240px;
+    height: 360px;  
+  }
+
 img:hover {
   transform: scale(1.03);
 }
@@ -41,9 +46,14 @@ div p {
 }
 
 @media (max-width: 925px) {
-  img, .skeleton_cover  {
+  img {
     max-width: 12rem;
     height: 18rem;
+  }
+
+  .skeleton_cover {
+    width: 192px;
+    height: 288px;  
   }
 
   div p {
@@ -52,9 +62,14 @@ div p {
 }
 
 @media (max-width: 768px) {
-  img, .skeleton_cover  {
+  img {
     max-width: 10rem;
     height: 15rem;
+  }
+
+  .skeleton_cover  {
+    width: 160px;
+    height: 240px;
   }
 
   div p {
@@ -63,9 +78,14 @@ div p {
 }
 
 @media (max-width: 420px) {
-  img, .skeleton_cover  {
+  img {
     max-width: 8rem;
     height: 13rem;
+  }
+
+  .skeleton_cover {
+    width: 128px;
+    height: 208px;
   }
 
   div p {
