@@ -18,9 +18,8 @@ export const SearchInput = ( { value, controlSearchIcon }: SearchFormProps ) => 
 
   const searchMovie = (e: FormEvent<HTMLElement>) => {
     e.preventDefault()
-    const searchInput = document.getElementById("searchMovieInput") as HTMLInputElement
-    if(searchInput) {
-      navigate(`/movies?name=${searchInput.value}`)
+    if(inputValue) {
+      navigate(`/movies?name=${inputValue}`)
     }
   }
 

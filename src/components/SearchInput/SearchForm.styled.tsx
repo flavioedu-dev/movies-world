@@ -48,12 +48,6 @@ input:hover {
   cursor: pointer;
 }
 
-@media (max-width: 1200px) and (min-width: 1101px) {
-  input {
-    max-width: 200px;
-  }
-}
-
 @media (max-width: 1100px) {
   > div {
     top: 1.2rem;
