@@ -16,8 +16,9 @@ width: 100%;
 }
 
 .skeleton_details {
-  width: 100%;
-  height: 80%;
+  width: 90rem;
+  max-width: 500px;
+  height: 750px;
   background-color: #272836;
 }
 
@@ -142,15 +143,8 @@ width: 100%;
   }
 }
 
-@media (min-width: 1370px) {
-  .skeleton_details {
-    width: 850px;
-  }
-}
-
 @media (max-width: 1366px) {
   .skeleton_details {
-    width: 140%;
     height: 80%;
   }
 }
@@ -181,13 +175,33 @@ width: 100%;
   .descript ul {
     column-gap: 1rem;
   }
+
+  .skeleton_details {
+    width: 450px;
+    height: 675px;
+  }
 }
 
 @media (max-width: 520px) {
   width: 100vw;
 
   .skeleton_details {
-    height: 70vh;
+    width: 416px;;
+    height: 624px;
+  }
+}
+
+@media (max-width: 500px) {
+  .skeleton_details {
+    width: 500px;
+    height: 750px;
+  }
+}
+
+@media (max-width: 420px) {
+  .skeleton_details {
+    width: 100%;
+    max-height: 70vh;
   }
 }
 `
