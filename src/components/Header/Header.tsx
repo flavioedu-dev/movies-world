@@ -1,10 +1,11 @@
 import styles from "./Header.module.css";
 
+// Icons
 import searchIcon from "../../assets/icons/search-icon.svg";
 import xIcon from "../../assets/icons/x-icon.png";
 import menuIcon from "../../assets/icons/menu.png";
 
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 // Components
 import { Navbar } from "../Navbar.style";

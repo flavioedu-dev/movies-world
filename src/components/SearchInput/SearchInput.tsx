@@ -1,8 +1,11 @@
+// Icons
 import searchIcon from "../../assets/icons/search-icon.svg";
 
+// Hooks and Types
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
+// Components
 import { SearchForm } from "./SearchForm.styled";
 
 
