@@ -31,7 +31,7 @@ export const SearchInput = ( { value, controlSearchIcon }: SearchFormProps ) => 
   }
 
   return (
-    <SearchForm onSubmit={searchMovie} $show_search={controlSearchIcon}>
+    <SearchForm onSubmit={searchMovie} $show_search={controlSearchIcon} $homepage={value}>
       <div>
         <input type="text" id="searchMovieInput" name="search" value={inputValue} placeholder="Buscar filme" className={"showSearchInput"}  onChange={changeSearchInput}/>
         <img

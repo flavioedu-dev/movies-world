@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
 
-export const SearchForm= styled.form<{ $show_search?: number; }>`
+export const SearchForm= styled.form<{ $show_search?: number; $homepage?: string; }>`
 
 > div {
   position: absolute;
-  top: 1.2rem;
-  right: 3.4%;
+  top: ${(props) => (
+    props.$homepage ? '1.2rem' : '.7rem'
+  )};
+  right: 3.4%;  
 }
 
 input {
