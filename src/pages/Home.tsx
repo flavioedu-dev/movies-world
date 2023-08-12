@@ -27,6 +27,23 @@ const Home = () => {
 
   const movies: movies[] = useGetMovies(urlRenderMovies);
 
+  const selectMovieList = (option: string) => {
+    setUrlRenderMovies(option)
+    setLoadingBanner(true)
+  }
+
+  const selectingMovie = (id: number, path: string, title: string, overview: string) => {
+    if(dataBanner?.movieId !== id){
+      setDataBanner({
+        movieId: id,
+        url_banner: path,
+        title,
+        overview,
+      })
+      setLoadingBanner(true)
+  }
+}
+
   useEffect(() => {
     setDataBanner({
       movieId: movies[0]?.id,
@@ -73,7 +90,7 @@ const Home = () => {
 
   return (
     <>  
-      <Header onclick={(option: string) => setUrlRenderMovies(option)}/>
+      <Header selectMovieList={selectMovieList}/>
       <BannerMovie>
         {loadingBanner && (
           <Skeleton 
@@ -104,17 +121,7 @@ const Home = () => {
         <div className="movies_list">
           <MoviesListRender
             url={`${urlRenderMovies}`}
-            onclick={(id: number, path: string, title: string, overview: string) => {
-              if(dataBanner?.movieId !== id){
-                setDataBanner({
-                  movieId: id,
-                  url_banner: path,
-                  title,
-                  overview,
-                })
-                setLoadingBanner(true)
-              }       
-            }}
+            onclick={selectingMovie}
           />
         </div>
       </BannerMovie>

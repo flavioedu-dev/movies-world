@@ -23,14 +23,14 @@ export const SearchInput = ( { value, controlSearchIcon }: SearchFormProps ) => 
     }
   }
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value)
   }
 
   return (
     <SearchForm onSubmit={searchMovie} $show_search={controlSearchIcon}>
       <div>
-        <input type="text" id="searchMovieInput" name="search" value={inputValue} placeholder="Buscar filme" className={"showSearchInput"}  onChange={handleChange}/>
+        <input type="text" id="searchMovieInput" name="search" value={inputValue} placeholder="Buscar filme" className={"showSearchInput"}  onChange={changeSearchInput}/>
         <img
           src={searchIcon}
           alt="search-icon"

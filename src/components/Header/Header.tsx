@@ -4,7 +4,7 @@ import searchIcon from "../../assets/icons/search-icon.svg";
 import xIcon from "../../assets/icons/x-icon.png";
 import menuIcon from "../../assets/icons/menu.png";
 
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 
 // Components
 import { Navbar } from "../Navbar.style";
@@ -17,10 +17,10 @@ interface menuOption {
 }
 
 interface HeaderProps {
-  onclick: (option: string) => void;
+  selectMovieList: (option: string) => void;
 }
 
-const Header = ({ onclick }: HeaderProps) => {
+const Header = ({ selectMovieList }: HeaderProps) => {
   const [optionSelected, setOptionSelected] = useState<number>(1);
   const [controlSearchInput, setControlSearchInput] = useState<number>(0);
   const [controlShowNav, setControlShowNav] = useState<number>(0);
@@ -48,14 +48,23 @@ const Header = ({ onclick }: HeaderProps) => {
     },
   ];
 
+  const selectingMovieList = (path: string, id: number) => {
+    selectMovieList(`${path}`)
+    setOptionSelected(id)
+    showNav()
+  }
+
   const showSearchInput = () => {
     controlSearchInput === 0
       ? setControlSearchInput(1)
       : setControlSearchInput(0);
-  };
+
+      controlShowNav === 1 && setControlShowNav(0)
+  }
 
   const showNav = () => {
     controlShowNav === 0 ? setControlShowNav(1) : setControlShowNav(0);
+    controlSearchInput === 1 && setControlSearchInput(0);
   };
 
   return (
@@ -71,9 +80,7 @@ const Header = ({ onclick }: HeaderProps) => {
           {menuOptions.map((menu) => (
             <span
               key={menu.id}
-              onClick={() => {
-                onclick(`${menu.path}`), setOptionSelected(menu.id);
-              }}
+              onClick={() => selectingMovieList(menu.path, menu.id)}
               className={optionSelected === menu.id ? "optionSelected" : ""}
             >
               {menu.name}
