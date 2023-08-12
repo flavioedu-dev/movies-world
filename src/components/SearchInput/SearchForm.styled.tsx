@@ -4,7 +4,7 @@ export const SearchForm= styled.form<{ $show_search?: number; }>`
 
 > div {
   position: absolute;
-  top: .75rem;
+  top: 1.2rem;
   right: 3.4%;
 }
 

@@ -25,7 +25,13 @@ left: ${(props) => (
 font-weight: 550;
 
 @media (min-width: 1050px) {
-  top: 4%;
+  top: 3%;
+  left: 3%;
+  padding: .7rem 1.4rem;
+}
+
+@media (min-width: 1200px) {
+  top: 2.5%;
   left: 3%;
   padding: .7rem 1.4rem;
 }
