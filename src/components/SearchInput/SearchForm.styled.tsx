@@ -56,7 +56,7 @@ input:hover {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   > div {
     top: 1.2rem;
   }

@@ -56,7 +56,7 @@ export const Navbar = styled.nav<{ $input_control?: number; $show_nav?: number; 
 
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     .menu-nav {
       display: block;
       background-color: ${(props) => (
@@ -72,6 +72,7 @@ export const Navbar = styled.nav<{ $input_control?: number; $show_nav?: number; 
     }
 
     > div {
+      height: 100vh;
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -110,6 +111,10 @@ export const Navbar = styled.nav<{ $input_control?: number; $show_nav?: number; 
           transform: translateX(-220px);
         }
       }
+
+      span {
+        margin: .5rem 0;
+      }
     }
     
     > img {
@@ -123,6 +128,23 @@ export const Navbar = styled.nav<{ $input_control?: number; $show_nav?: number; 
     .optionSelected, .optionSelected:hover {
       border-bottom: none;
       border-right: 5px solid #fff;
+    }
+  }
+
+  @media (max-width: 520px) {
+    > div {
+      max-width: 50%;
+      min-width: 13rem;
+    }
+
+    > div span {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    > div {
+      min-width: 12rem;
     }
   }
 `
